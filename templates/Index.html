@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+</head>
+<body>
+    <h1>Loan Prediction</h1>
+    <form id="predictionForm">
+        <label for="features">Enter Features (comma separated):</label><br>
+        <input type="text" id="features" name="features" required><br><br>
+        <button type="button" onclick="predict('logistic')">Predict with Logistic Regression</button>
+        <button type="button" onclick="predict('nn')">Predict with Neural Network</button>
+    </form>
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+        function predict(model) {
+            const features = document.getElementById('features').value.split(',').map(Number);
+            fetch(`/predict_${model}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ features: features })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = data.result;
+            });
+        }
+    </script>
+</body>
+</html>
