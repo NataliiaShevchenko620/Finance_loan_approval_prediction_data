@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4facfe;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(50% - 10px);
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #007bff;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        span {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .checkbox-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .result-container img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Prediction</h1>
+        <form id="predictionForm">
+            <label for="feature1">Applicant Income:</label>
+            <input type="range" id="feature1" name="Applicant Income" min="-100000" max="100000" step="1" oninput="updateValue(this.value, 'value1')">
+            <span id="value1">0</span><br><br>
+
+            <label for="feature2">Coapplicant Income:</label>
+            <input type="range" id="feature2" name="Coapplicant Income" min="0" max="100" step="1" oninput="updateValue(this.value, 'value2')">
+            <span id="value2">50</span><br><br>
+
+            <label for="feature3">Loan Amount:</label>
+            <input type="range" id="feature3" name="Loan Amount" min="0" max="100" step="1" oninput="updateValue(this.value, 'value3')">
+            <span id="value3">50</span><br><br>
+
+            <label for="feature4">Loan Amount Term:</label>
+            <input type="range" id="feature4" name="Loan Amount Term" min="0" max="100" step="1" oninput="updateValue(this.value, 'value4')">
+            <span id="value4">50</span><br><br>
+
+            <label for="feature5">Credit History:</label>
+            <input type="range" id="feature5" name="Credit History" min="0" max="100" step="1" oninput="updateValue(this.value, 'value5')">
+            <span id="value5">50</span><br><br>
+
+            <label>Additional Features:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="feature6" name="Gender Female" value="1"> Gender Female</label><br>
+                <label><input type="checkbox" id="feature7" name="Gender Male" value="1"> Gender Male</label><br>
+                <label><input type="checkbox" id="feature8" name="Married (No)" value="1"> Married (No)</label><br>
+                <label><input type="checkbox" id="feature9" name="Married (Yes)" value="1"> Married (Yes)</label><br>
+                <label><input type="checkbox" id="feature10" name="Dependents 1" value="1"> Dependents 1</label><br>
+                <label><input type="checkbox" id="feature11" name="Dependents 2" value="1"> Dependents 2</label><br>
+                <label><input type="checkbox" id="feature12" name="Dependents 3" value="1"> Dependents 3</label><br>
+                <label><input type="checkbox" id="feature13" name="Education Graduate" value="1"> Education Graduate</label><br>
+                <label><input type="checkbox" id="feature14" name="Education Not Graduate" value="1"> Education Not Graduate</label><br>
+                <label><input type="checkbox" id="feature15" name="Self Employed (No)" value="1"> Self Employed (No)</label><br>
+                <label><input type="checkbox" id="feature16" name="Self Employed (Yes)" value="1"> Self Employed (Yes)</label><br>
+                <label><input type="checkbox" id="feature17" name="Property Area Rural" value="1"> Property Area Rural</label><br>
+                <label><input type="checkbox" id="feature18" name="Property Area Semiurban" value="1"> Property Area Semiurban</label><br>
+                <label><input type="checkbox" id="feature19" name="Property Area Urban" value="1"> Property Area Urban</label><br>
+            </div>
+
+            <button type="button" onclick="predict('logistic')">Logistic Regression</button>
+            <button type="button" onclick="predict('nn')">Neural Network</button>
+        </form>
+        <div class="result-container" id="result-container">
+            <h2>Result: <span id="result"></span></h2>
+            <img id="result-gif" src="" alt="" style="display: none;">
+        </div>
+    </div>
+
+    <script>
+        function updateValue(value, elementId) {
+            document.getElementById(elementId).innerText = value;
+        }
+
+        function predict(model) {
+            const feature1 = parseInt(document.getElementById('feature1').value);
+            const feature2 = parseInt(document.getElementById('feature2').value);
+            const feature3 = parseInt(document.getElementById('feature3').value);
+            const feature4 = parseInt(document.getElementById('feature4').value);
+            const feature5 = parseInt(document.getElementById('feature5').value);
+            const additionalFeatures = [];
+
+            for (let i = 6; i <= 20; i++) {
+                const checkbox = document.getElementById(`feature${i}`);
+                additionalFeatures.push(checkbox.checked ? 1 : 0);
+            }
+
+            const features = [feature1, feature2, feature3, feature4, feature5, ...additionalFeatures];
+
+            fetch(`/predict_${model}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ features: features })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultContainer = document.getElementById('result-container');
+                const resultSpan = document.getElementById('result');
+                const resultGif = document.getElementById('result-gif');
+                
+                if (data.result === 1) {
+                    resultSpan.innerText = "Loan Approved!";
+                    resultGif.src = "https://img1.picmix.com/output/stamp/normal/3/8/9/3/1343983_d419c.gif";
+                    resultGif.alt = "Approved";
+                } else {
+                    resultSpan.innerText = "Loan Not Approved!";
+                    resultGif.src = "https://img1.picmix.com/output/stamp/normal/3/8/9/3/1343983_d419c.gif";
+                    resultGif.alt = "Not Approved";
+                }
+                
+                resultGif.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>
+
