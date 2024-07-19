@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4facfe;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(50% - 10px);
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #007bff;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        span {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Prediction</h1>
+        <form id="predictionForm">
+            <label for="feature1">Gender:</label>
+            <input type="range" id="feature1" name="Gender" min="-100000" max="100000" step="1" oninput="updateValue(this.value, 'value1')">
+            <span id="value1">0</span><br><br>
+
+            <label for="feature2">Married:</label>
+            <input type="range" id="feature2" name="Married" min="0" max="100" step="1" oninput="updateValue(this.value, 'value2')">
+            <span id="value2">50</span><br><br>
+
+            <label for="feature3">Dependents:</label>
+            <input type="range" id="feature3" name="Dependents" min="0" max="100" step="1" oninput="updateValue(this.value, 'value3')">
+            <span id="value3">50</span><br><br>
+
+            <label for="feature4">Education:</label>
+            <input type="range" id="feature4" name="Education" min="0" max="100" step="1" oninput="updateValue(this.value, 'value4')">
+            <span id="value4">50</span><br><br>
+
+            <label for="feature5">Self_Employed:</label>
+            <input type="range" id="feature5" name="Self_Employed" min="0" max="100" step="1" oninput="updateValue(this.value, 'value5')">
+            <span id="value5">50</span><br><br>
+
+            <label for="features">Enter Additional Features:</label>
+            <input type="text" id="features" name="features" placeholder="comma separated values"><br><br>
+
+            <button type="button" onclick="predict('logistic')">Logistic Regression</button>
+            <button type="button" onclick="predict('nn')">Neural Network</button>
+        </form>
+        <h2>Result: <span id="result"></span></h2>
+    </div>
+
+    <script>
+        function updateValue(value, elementId) {
+            document.getElementById(elementId).innerText = value;
+        }
+
+        function predict(model) {
+            const feature1 = parseInt(document.getElementById('feature1').value);
+            const feature2 = parseInt(document.getElementById('feature2').value);
+            const feature3 = parseInt(document.getElementById('feature3').value);
+            const feature4 = parseInt(document.getElementById('feature4').value);
+            const feature5 = parseInt(document.getElementById('feature5').value);
+            const additionalFeatures = document.getElementById('features').value.split(',').map(Number);
+
+            const features = [feature1, feature2, feature3, feature4, feature5, ...additionalFeatures];
+
+            fetch(`/predict_${model}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ features: features })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = data.result;
+            });
+        }
+    </script>
+</body>
+</html>
+

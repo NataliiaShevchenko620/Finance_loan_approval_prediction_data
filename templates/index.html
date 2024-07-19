@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-weight: lighter;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 75px;
+            padding-bottom: 75px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            box-sizing: border-box;
+            /* Ensures padding is included in the width */
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"]::-webkit-scrollbar {
+            display: none;
+        }
+
+        button[type="submit"] {
+            background-color: #4facfe;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #007bff;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        span {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Loan Prediction App</h1>
+        <form action="/" method="post">
+            <label for="Combined_income">Combined Income</label>
+            <input type="number" id="Combined_income" name="Combined_income" min="0" step="1" required>
+
+            <label for="Credit_history">Credit History</label>
+            <select id="Credit_history" name="Credit_history" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="Requested_amount">Requested Amount</label>
+            <input type="number" id="Requested_amount" name="Requested_amount" min="0" step="1" required>
+
+            <label for="Community_type">Community Type</label>
+            <select id="Community_type" name="Community_type" required>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+                <option value="Suburban">Suburban</option>
+            </select>
+
+            <label for="Dependents">Dependents</label>
+            <select id="Dependents" name="Dependents" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3+">3+</option>
+            </select>
+
+            <label for="College_degree">College Degree</label>
+            <select id="College_degree" name="College_degree" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Result: <span>{{result}}</span></h2>
+    </div>
+</body>
+
+</html>
