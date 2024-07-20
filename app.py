@@ -36,7 +36,14 @@ def tableau():
     """
     return render_template('tableau.html')
 
-def predict(input_data): 
+@app.route('/tableau')
+def tableau():
+    """
+    Route to render the Tableau dashboard
+    """
+    return render_template('tableau.html')
+
+def predict(input_data):
     """
     Helper function to make predictions based on input data.
     """
