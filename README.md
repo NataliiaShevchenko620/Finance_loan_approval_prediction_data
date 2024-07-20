@@ -1,6 +1,6 @@
 Loan_Approval_Prediction_Application/
 ├── README.md
-├── Resources
+├── Resources 
 │   ├── clean_loan_data.csv
 │   └── loan.csv
 ├── app.py
