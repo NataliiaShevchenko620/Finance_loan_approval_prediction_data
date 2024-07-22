@@ -14,7 +14,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 130vh;
+
             margin: 0;
             padding-top: 75px;
             padding-bottom: 75px;
@@ -99,13 +99,20 @@
             max-width: 450px;
             text-align: center;
         }
+
+        .gif {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Loan Prediction App</h1>
-        <form action="/" method="post">
+        <form id="loanForm" action="/" method="post">
             <label for="Combined_income">Combined Income</label>
             <input type="number" id="Combined_income" name="Combined_income" min="0" step="1" required>
 
@@ -121,7 +128,7 @@
             <label for="Community_type">Community Type</label>
             <select id="Community_type" name="Community_type" required>
                 <option value="Urban">Urban</option>
-                <option value="Rural">Rural</option>
+                <option value="Rural">Rural</</option>
                 <option value="Suburban">Suburban</option>
             </select>
 
@@ -141,13 +148,35 @@
 
             <button type="submit">Submit</button>
         </form>
-        <h2>Result: <span>{{result}}</span></h2>
+        <h2>Result: <span id="result">{{result}}</span></h2>
+
+        <img id="yesGif" class="gif" src="https://img1.picmix.com/output/stamp/normal/3/8/9/3/1343983_d419c.gif" alt="Yes GIF">
+        <img id="noGif" class="gif" src="https://gifdb.com/images/high/no-money-donald-duck-a0c7yaypljvywx2f.gif" alt="No GIF">
 
         <div class="button-container">
             <a href="/tableau" class="button-link">View Tableau Dashboard</a>
         </div>
     </div>
     
+    <script>
+        document.getElementById('loanForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const result = document.getElementById('result').textContent.trim();
+            const yesGif = document.getElementById('yesGif');
+            const noGif = document.getElementById('noGif');
+
+            if (result === 'Yes') {
+                yesGif.style.display = 'block';
+                noGif.style.display = 'none';
+            } else if (result === 'No') {
+                noGif.style.display = 'block';
+                yesGif.style.display = 'none';
+            } else {
+                yesGif.style.display = 'none';
+                noGif.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
