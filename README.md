@@ -51,11 +51,11 @@ After examination of the data, the following actions were performed:
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - A confusion matrix is a useful tool for evaluating the performance of a classification model. The matrix provides information about true positives (TPs), true negatives (TNs), false positives (FPs), and false negatives (FNs).  The following Confusion Matrix of this logistic regression model was generated as a function of the y_test and y_pred data:
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture3.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
 
 - A classification report is commonly used to evaluate the performance of a classification model in terms of precision, recall, F1-score, and support. The following Classfication Report of this logistic regression model was generated as a function of the y_test and y_pred data:
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture4.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture4.png)
 
 **Second Logistic Regression Model:**
 
@@ -64,7 +64,7 @@ After examination of the data, the following actions were performed:
 - Prediction data (i.e., y_pred) was re-created as a function of X_test_poly data.
 - The following Classfication Report of the second logistic regression model was generated as a function of the y_test and y_pred data:
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture5.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture5.png)
 
 **Conclusion:** The first logistic regression model reveals a high precision for the positive class (0.78) and a high recall (0.98); the second model shows a decrease in precision (0.71) but an improvement in recall (0.51) for the negative class. The overall accuracy of the first model is 80%, while the second model's accuracy is 78%. Based on this analysis, the polynomial features and L1 regularization included in the second model did not significantly improve the model's performance and even reduced its precision in some cases. 
 
@@ -78,7 +78,7 @@ After examination of the data, the following actions were performed:
 - The output layer comprised of 1 fully-connected neuron and a sigmoid activation function was added for squashing the output between 0 and 1. 
 - The following presents the structure of the NN model:
     
-  [image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture6.png)
+  [image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture6.png)
 
 **Second NN Model**
 - A second NN model was complied.
@@ -89,7 +89,7 @@ After examination of the data, the following actions were performed:
 - The second NN model was fitted as a function of X_train, y_train and 100 epochs, where the weights of the model are adjusted to minimize the loss function during each epoch.  
 - The following presents the model's loss and accuracy as a function of X_test and y_test:  
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture7.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture7.png)
 
 **Third NN Model**
 - A third NN model of a second sequential NN model comprising two hidden layers and one output layer was created.
@@ -138,7 +138,7 @@ After examination of the data, the following actions were performed:
 - An accuracy score list is appended with the mean score of the cross-validated accuracy score.
 - The following presents an elbow plot of the model:
     
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture10.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture10.png)
 
 **Second KNN Model**
 - A second KNN model was created with the number of neighbors parameter set to 8.
@@ -147,7 +147,7 @@ After examination of the data, the following actions were performed:
 - The model was evaluated using a confusion matrix generated as a function of y_test data, y_pred data, and the number of unique labels of the y_train data.
 - The following presents the Confusion Matrix evaluation of the model:
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture11.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture11.png)
 
 **Third KNN Model**
 - A third KNN model was created with grid search.
@@ -160,7 +160,7 @@ After examination of the data, the following actions were performed:
 - The model was evaluated using a confusion matrix generated as a function of y_test data, y_pred data, and the number of unique labels of the y_train data.
 - The following presents the Confusion Matrix evaluation of the model:
     
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture12.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture12.png)
 
 **Summary** 
 - Second KNN Model
@@ -180,7 +180,7 @@ After examination of the data, the following actions were performed:
 - The model was evaluated using a confusion matrix generated as a function of y_test and y_pred data.
 - The following presents the Confusion Matrix evaluation of the model:
   
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture13.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture13.png)
 
 **Second GB Model**
 - A Histogram-Based Gradient Boosting Classifier was created and fitted as a function of X_train and y_train data.
@@ -199,9 +199,9 @@ After examination of the data, the following actions were performed:
 - Feature importances were determined.
 - The following presents the Confusion Matrix evaluation, Classfication Report evaluation, and Feature Importances of the model:   
   
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture16.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture16.png)
     
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture17.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture17.png)
 
 
 **Summary** 
@@ -227,23 +227,23 @@ After examination of the data, the following actions were performed:
   - CoapplicantIncome v. LoanAmount
 - The following presents the heat map of the original data:   
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture19.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture19.png)
 
 - The following presents a histogram of ApplicantIncome v. Count and a boxplot of ApplicantIncome:     
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture20.png)
+  ![image](hhttps://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture20.png)
 
 - The following presents a sactterplot of Applicant Income v. Loan Amount:     
    
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture21.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture21.png)
 
 - The following presents a scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
 
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture22.png)
+  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture22.png)
 
 - The following presents a second scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
     
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/Screenshots/Picture23.png)
+  ![image](hhttps://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture23.png)
 
 - A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
 - The model coeffient (i.e., slope) of the regression line is 0.007927.
