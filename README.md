@@ -22,7 +22,7 @@ The original data was provided in a .csv.  It was read into a Pandas DataFrame a
 - **gender:** Gender of the applicant.
 - **Dependents:** Number of dependents of the applicant.
 - **Education:** College or non-college education of the applicant.
-- **Self_Employed:** Self-employment of non-self-employment of the applicant.
+- **Self_Employed:** Whether or not the applicant was self-employed (Y/N).
 - **ApplicantIncome:** Income of the applicant.
 - **CoapplicantIncome:** Income of a co-applicant (if present).
 - **LoanAmount:** Loan amount of the mortgage requested by the applicant (in thousands).
