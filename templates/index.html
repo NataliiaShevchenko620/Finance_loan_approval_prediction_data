@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Loan Prediction App</h1>
+        <form action="/" method="post">
+            <label for="Combined_income">Combined Income</label>
+            <input type="number" id="Combined_income" name="Combined_income" min="0" step="1" required>
+
+            <label for="Credit_history">Credit History</label>
+            <select id="Credit_history" name="Credit_history" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="Requested_amount">Requested Amount</label>
+            <input type="number" id="Requested_amount" name="Requested_amount" min="0" step="1" required>
+
+            <label for="Community_type">Community Type</label>
+            <select id="Community_type" name="Community_type" required>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+                <option value="Suburban">Suburban</option>
+            </select>
+
+            <label for="Dependents">Dependents</label>
+            <select id="Dependents" name="Dependents" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3+">3+</option>
+            </select>
+
+            <label for="College_degree">College Degree</label>
+            <select id="College_degree" name="College_degree" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Result: <span>{{result}}</span></h2>
+    </div>
+</body>
+
+</html>
