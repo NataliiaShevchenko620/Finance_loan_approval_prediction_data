@@ -2,21 +2,21 @@
 
 ## Presented by Group 4
 * Brent Beachtel
-* Justin Bein
 * Tico Brown
 * Jim Haugen
-* Celina Kamler
+* Celina K
+* Justin
 * Nataliia Shevchenko
 
 
-## Purpose of the Analysis 
-The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
+### Purpose of the Analysis 
+The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(2) seeking a mortgage.  By leveraging neural networks, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
 
 
 
-## Overview of the Analysis
+### Overview of the Analysis
 
-### Data Preprossing
+#### Data Preprossing
 The original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
 - **Loan_ID:** Unique identifier for each row. 
 - **gender:** Gender of the applicant.
@@ -42,20 +42,20 @@ After examination of the data, the following actions were performed:
 - Loan_Status was considered "label" (y) because it is data which will indicate approval of the mortage applicant.
 - All variables except Loan_Status were considered "features" (X) they are the data used to predict the approval of the mortage applicant.
 - Test and train subsets were divided into the following:
-  - First train and test subsets (i.e., y_train and y_test) comprising the "label" column were created .
-  - Second train and test subsets (i.e., X_train and X_test) comprising the "features" columns were created.
+  - First train and test subsets (i.e., y_train and y_test) were created comprising the "label" column.
+  - Second train and test subsets (i.e., X_train and X_test) were created comprising the "features" column.  
 
-### Logistic Regression Models
+#### Create a Logistic Regression Models
 **First Logistic Regression Model:**
 - A logistic regression model comprising reproducibility random state of 1 was created and fitted as a function of X_train and y_test data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - A confusion matrix is a useful tool for evaluating the performance of a classification model. The matrix provides information about true positives (TPs), true negatives (TNs), false positives (FPs), and false negatives (FNs).  The following Confusion Matrix of this logistic regression model was generated as a function of the y_test and y_pred data:
 
-![The optimized model](Screenshots/Picture3.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
 
 - A classification report is commonly used to evaluate the performance of a classification model in terms of precision, recall, F1-score, and support. The following Classfication Report of this logistic regression model was generated as a function of the y_test and y_pred data:
 
-![The optimized model](Screenshots/Picture4.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture4.png)
 
 **Second Logistic Regression Model:**
 
@@ -64,12 +64,11 @@ After examination of the data, the following actions were performed:
 - Prediction data (i.e., y_pred) was re-created as a function of X_test_poly data.
 - The following Classfication Report of the second logistic regression model was generated as a function of the y_test and y_pred data:
 
-![The optimized model](Screenshots/Picture5.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture5.png)
 
-**Conclusion** 
-The first logistic regression model reveals a high precision for the positive class (0.78) and a high recall (0.98); the second model shows a decrease in precision (0.71) but an improvement in recall (0.51) for the negative class. The overall accuracy of the first model is 80%, while the second model's accuracy is 78%. Based on this analysis, the polynomial features and L1 regularization included in the second model did not significantly improve the model's performance and even reduced its precision in some cases. 
+**Conclusion:** The first logistic regression model reveals a high precision for the positive class (0.78) and a high recall (0.98); the second model shows a decrease in precision (0.71) but an improvement in recall (0.51) for the negative class. The overall accuracy of the first model is 80%, while the second model's accuracy is 78%. Based on this analysis, the polynomial features and L1 regularization included in the second model did not significantly improve the model's performance and even reduced its precision in some cases. 
 
-###  Neural Network (NN) Models 
+####  Create a Neural Network (NN) Models 
 **First NN Model**
 - A first NN model of a sequential NN model comprising two hidden layers and one output layer was created.
 - The first hidden layer was added for receiving the input data of the features in the X_train data and comprised of 64 neurons and a ReLU activation function.
@@ -79,7 +78,7 @@ The first logistic regression model reveals a high precision for the positive cl
 - The output layer comprised of 1 fully-connected neuron and a sigmoid activation function was added for squashing the output between 0 and 1. 
 - The following presents the structure of the NN model:
     
-![The optimized model](Screenshots/Picture6.png)
+[image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture6.png)
 
 **Second NN Model**
 - A second NN model was complied.
@@ -90,7 +89,7 @@ The first logistic regression model reveals a high precision for the positive cl
 - The second NN model was fitted as a function of X_train, y_train and 100 epochs, where the weights of the model are adjusted to minimize the loss function during each epoch.  
 - The following presents the model's loss and accuracy as a function of X_test and y_test:  
 
-![The optimized model](Screenshots/Picture7.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture7.png)
 
 **Third NN Model**
 - A third NN model of a second sequential NN model comprising two hidden layers and one output layer was created.
@@ -102,6 +101,7 @@ The first logistic regression model reveals a high precision for the positive cl
 - The model was compiled using the Adam optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The Adam optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training to improve convergence speed and performance. The binary_crossentropy loss function measures the difference between predicted probabilities and actual class labels.
 - The third NN model was fitted as a function of X_train, y_train, 50 epochs, 32 samples used per iteration, and a 20% proportion of training data to use for validation during fitting.  
 - The third NN model delivered an accuracy of 0.80.
+
 
 **Fourth NN Model**
 - A fourth NN model of a third sequential NN model comprising four hidden layers and one output layer was created.
@@ -118,7 +118,7 @@ The first logistic regression model reveals a high precision for the positive cl
 - The model was compiled using the Root Mean Square Propogation (i.e., RMSProp) optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The RMSProp optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training based upon the gradient history corresponding to stochastic gradient descent in the training of deep enural networks.
 - The fourth NN model delivered an accuracy of 0.8049.
 
-**Summary** 
+**Summary:** 
 - First NN Model
   - Accuracy: 0.80 The first neural network model, using two hidden layers with 15 and 10 neurons respectively demonstrated excellent performance, achieving an accuracy of 80%. This confirms that even a relatively simple neural network can effectively solve the binary classification task.
 
@@ -128,18 +128,17 @@ The first logistic regression model reveals a high precision for the positive cl
 - Fourth NN Model
   - Accuracy: 0.80 The third neural network model, featuring a multi-layer architecture with a large number of neurons (256, 128, 64, 32), BatchNormalization, and Dropout in each layer, along with the RMSprop optimizer with a lower learning rate, also showed high accuracy at 80%. This demonstrates that a model with a more complex architecture and additional measures to prevent overfitting can maintain stable performance.
 
-**Conclusion** 
-Neural networks have demonstrated their ability to solve the loan status classification task with high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
+**Conclusion:** Neural networks have demonstrated their ability to solve the loan status classification task with high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
 
 
-###  K-Nearest Neighbors (KNN) Models
+####  Create a K-Nearest Neighbors (KNN) Models
 **First KNN Model**
 - A first KNN model was created with the number of neighbors parameter set to 30.
 - A cross-validated accuracy score for the model was calculated as a cross-validation function spitting the X_train and y_train data into 5 validation folds and evaluating the model's performance on each fold.
 - An accuracy score list is appended with the mean score of the cross-validated accuracy score.
 - The following presents an elbow plot of the model:
     
-![The optimized model](Screenshots/Picture10.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture10.png)
 
 **Second KNN Model**
 - A second KNN model was created with the number of neighbors parameter set to 8.
@@ -148,7 +147,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 - The model was evaluated using a confusion matrix generated as a function of y_test data, y_pred data, and the number of unique labels of the y_train data.
 - The following presents the Confusion Matrix evaluation of the model:
 
-![The optimized model](Screenshots/Picture11.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture11.png)
 
 **Third KNN Model**
 - A third KNN model was created with grid search.
@@ -161,7 +160,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 - The model was evaluated using a confusion matrix generated as a function of y_test data, y_pred data, and the number of unique labels of the y_train data.
 - The following presents the Confusion Matrix evaluation of the model:
     
-![The optimized model](Screenshots/Picture12.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture12.png)
 
 **Summary** 
 - Second KNN Model
@@ -174,14 +173,14 @@ Neural networks have demonstrated their ability to solve the loan status classif
 -  Generally, KNN models are considered fairly simple models, so it is logical that the accuracy turned out to be lower than that of NN models discusssed above.
 
 
-###  Gradient-Boosting (GB) Models
+####  Create a Gradient-Boosting (GB) Models
 **First GB Model**
 - A Light Gradient-Boosting Machine (LightGBM) model was created and fitted as a function of X_train and y_train data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - The model was evaluated using a confusion matrix generated as a function of y_test and y_pred data.
 - The following presents the Confusion Matrix evaluation of the model:
   
-![The optimized model](Screenshots/Picture13.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture13.png)
 
 **Second GB Model**
 - A Histogram-Based Gradient Boosting Classifier was created and fitted as a function of X_train and y_train data.
@@ -193,16 +192,16 @@ Neural networks have demonstrated their ability to solve the loan status classif
 -  The LightGBM model demonstrates a balanced performance with good precision and recall for both classes, making it a reliable choice for this classification problem.  When compared with the KNN models, all have shown strong performance in predicting loan statuses but still lower than NN models. The Third KNN Model particularly excels in identifying approved loans with high precision and recall, while the LightGBM model offers balanced and reliable predictions for both approved and rejected loans. These results highlight the effectiveness of both models in handling the binary classification task, providing a solid foundation for further improvements and applications in loan status prediction.
 
 
-###  Random Forest Model
+####  Create Random Forest Model
 - A random forest model comprised of 500 estimators and a reproducibility random state of 78 was created and fitted as a function of X_train and y_train data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - The model was evaluated using a confusion matrix and a classification report generated as a function of y_test and y_pred data.
 - Feature importances were determined.
 - The following presents the Confusion Matrix evaluation, Classfication Report evaluation, and Feature Importances of the model:   
   
-![The optimized model](Screenshots/Picture16.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture16.png)
     
-![The optimized model](Screenshots/Picture17.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture17.png)
 
 
 **Summary** 
@@ -220,35 +219,34 @@ Neural networks have demonstrated their ability to solve the loan status classif
 **Conclusion** 
 -  The Random Forest model successfully demonstrates its capability in predicting loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
 
-### Linear Regression Models  
-- Visual Analysis for Examiantion of Numerical Columns
-  - A heat map of the original data was created to determine the correlations of the numerical columns.
-  - There are two positive correlations.
-    - ApplicantIncome v. LoanAmount
-    - CoapplicantIncome v. LoanAmount
-  - The following presents the heat map of the original data:   
 
-  ![The optimized model](Screenshots/Picture19.png)
+####  Create a Linear Regression Model
+- A heat map of the original data was created to determine the correlations of the numerical columns.
+- There are two positive correlations.
+  - ApplicantIncome v. LoanAmount
+  - CoapplicantIncome v. LoanAmount
+- The following presents the heat map of the original data:   
 
-  - The following presents a histogram of ApplicantIncome v. Count and a boxplot of ApplicantIncome:     
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture19.png)
 
-  ![The optimized model](Screenshots/Picture20.png)
+- The following presents a histogram of ApplicantIncome v. Count and a boxplot of ApplicantIncome:     
 
-  - The following presents a sactterplot of Applicant Income v. Loan Amount:     
+![image](hhttps://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture20.png)
+
+- The following presents a sactterplot of Applicant Income v. Loan Amount:     
    
-  ![The optimized model](Screenshots/Picture21.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture21.png)
 
-  - The following presents a scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
+- The following presents a scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
 
-  ![The optimized model](Screenshots/Picture22.png)
+![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture22.png)
 
-  - The following presents a second scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
+- The following presents a second scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
     
-  ![The optimized model](Screenshots/Picture23.png)
+![image](hhttps://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture23.png)
 
-- Linear Regression Models
-  - A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
-  - The model coeffient (i.e., slope) of the regression line is 0.007927.
-  - The model intercept (i.e., y-intercept) of the regression line is 103.57.   
-  - The Mean Absolute Percentage Error (MAPE) is 0.3387.
-  - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
+- A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
+- The model coeffient (i.e., slope) of the regression line is 0.007927.
+- The model intercept (i.e., y-intercept) of the regression line is 103.57.   
+- The Mean Absolute Percentage Error (MAPE) is 0.3387.
+- The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
