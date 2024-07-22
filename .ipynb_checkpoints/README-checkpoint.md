@@ -10,7 +10,7 @@
 
 
 ### Purpose of the Analysis 
-The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging neural networks, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
+The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(2) seeking a mortgage.  By leveraging neural networks, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
 
 
 
@@ -52,9 +52,6 @@ After examination of the data, the following actions were performed:
 - A confusion matrix is a useful tool for evaluating the performance of a classification model. The matrix provides information about true positives (TPs), true negatives (TNs), false positives (FPs), and false negatives (FNs).  The following Confusion Matrix of this logistic regression model was generated as a function of the y_test and y_pred data:
 
 ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
-    ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
-
 
 - A classification report is commonly used to evaluate the performance of a classification model in terms of precision, recall, F1-score, and support. The following Classfication Report of this logistic regression model was generated as a function of the y_test and y_pred data:
 
