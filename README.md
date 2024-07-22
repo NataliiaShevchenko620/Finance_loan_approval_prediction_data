@@ -9,14 +9,14 @@
 * Nataliia Shevchenko
 
 
-### Purpose of the Analysis 
+## Purpose of the Analysis 
 The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
 
 
 
-### Overview of the Analysis
+## Overview of the Analysis
 
-#### Data Preprossing
+### Data Preprossing
 The original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
 - **Loan_ID:** Unique identifier for each row. 
 - **gender:** Gender of the applicant.
@@ -42,10 +42,10 @@ After examination of the data, the following actions were performed:
 - Loan_Status was considered "label" (y) because it is data which will indicate approval of the mortage applicant.
 - All variables except Loan_Status were considered "features" (X) they are the data used to predict the approval of the mortage applicant.
 - Test and train subsets were divided into the following:
-  - First train and test subsets (i.e., y_train and y_test) were created comprising the "label" column.
-  - Second train and test subsets (i.e., X_train and X_test) were created comprising the "features" column.  
+  - First train and test subsets (i.e., y_train and y_test) comprising the "label" column were created .
+  - Second train and test subsets (i.e., X_train and X_test) comprising the "features" columns were created.
 
-#### Create a Logistic Regression Models
+### Create a Logistic Regression Models
 **First Logistic Regression Model:**
 - A logistic regression model comprising reproducibility random state of 1 was created and fitted as a function of X_train and y_test data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
@@ -68,7 +68,7 @@ After examination of the data, the following actions were performed:
 
 **Conclusion:** The first logistic regression model reveals a high precision for the positive class (0.78) and a high recall (0.98); the second model shows a decrease in precision (0.71) but an improvement in recall (0.51) for the negative class. The overall accuracy of the first model is 80%, while the second model's accuracy is 78%. Based on this analysis, the polynomial features and L1 regularization included in the second model did not significantly improve the model's performance and even reduced its precision in some cases. 
 
-####  Create a Neural Network (NN) Models 
+###  Create a Neural Network (NN) Models 
 **First NN Model**
 - A first NN model of a sequential NN model comprising two hidden layers and one output layer was created.
 - The first hidden layer was added for receiving the input data of the features in the X_train data and comprised of 64 neurons and a ReLU activation function.
@@ -131,7 +131,7 @@ After examination of the data, the following actions were performed:
 **Conclusion:** Neural networks have demonstrated their ability to solve the loan status classification task with high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
 
 
-####  Create a K-Nearest Neighbors (KNN) Models
+###  Create a K-Nearest Neighbors (KNN) Models
 **First KNN Model**
 - A first KNN model was created with the number of neighbors parameter set to 30.
 - A cross-validated accuracy score for the model was calculated as a cross-validation function spitting the X_train and y_train data into 5 validation folds and evaluating the model's performance on each fold.
@@ -173,7 +173,7 @@ After examination of the data, the following actions were performed:
 -  Generally, KNN models are considered fairly simple models, so it is logical that the accuracy turned out to be lower than that of NN models discusssed above.
 
 
-####  Create a Gradient-Boosting (GB) Models
+###  Create a Gradient-Boosting (GB) Models
 **First GB Model**
 - A Light Gradient-Boosting Machine (LightGBM) model was created and fitted as a function of X_train and y_train data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
@@ -192,7 +192,7 @@ After examination of the data, the following actions were performed:
 -  The LightGBM model demonstrates a balanced performance with good precision and recall for both classes, making it a reliable choice for this classification problem.  When compared with the KNN models, all have shown strong performance in predicting loan statuses but still lower than NN models. The Third KNN Model particularly excels in identifying approved loans with high precision and recall, while the LightGBM model offers balanced and reliable predictions for both approved and rejected loans. These results highlight the effectiveness of both models in handling the binary classification task, providing a solid foundation for further improvements and applications in loan status prediction.
 
 
-####  Create Random Forest Model
+###  Create Random Forest Model
 - A random forest model comprised of 500 estimators and a reproducibility random state of 78 was created and fitted as a function of X_train and y_train data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - The model was evaluated using a confusion matrix and a classification report generated as a function of y_test and y_pred data.
@@ -220,7 +220,7 @@ After examination of the data, the following actions were performed:
 -  The Random Forest model successfully demonstrates its capability in predicting loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
 
 
-####  Create a Linear Regression Model
+###  Create a Linear Regression Model
 - A heat map of the original data was created to determine the correlations of the numerical columns.
 - There are two positive correlations.
   - ApplicantIncome v. LoanAmount
