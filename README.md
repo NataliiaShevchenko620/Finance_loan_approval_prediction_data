@@ -27,7 +27,7 @@ The original data was provided in a .csv.  It was read into a Pandas DataFrame a
 - **CoapplicantIncome:** Income of a co-applicant (if present).
 - **LoanAmount:** Loan amount of the mortgage requested by the applicant (in thousands).
 - **Loan_Amount_Term:** Number of months for the term of the mortgage (in months).
-- **Credit_History:** Previous credit history of the applicant's repayment of debts.
+- **Credit_History:** Whether or not the applicant had any prior credit history (Y/N).
 - **Property_Area:** Area of the property to which mortgage will be applied, i.e., Urban/Rural/Semiurban.
 - **Loan_Status:** Approval or non-approval of the mortgage for the applicant, i.e., Y-Yes, N-No.
 
