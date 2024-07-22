@@ -45,7 +45,7 @@ After examination of the data, the following actions were performed:
   - First train and test subsets (i.e., y_train and y_test) comprising the "label" column were created .
   - Second train and test subsets (i.e., X_train and X_test) comprising the "features" columns were created.
 
-### Create a Logistic Regression Models
+### Logistic Regression Models
 **First Logistic Regression Model:**
 - A logistic regression model comprising reproducibility random state of 1 was created and fitted as a function of X_train and y_test data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
@@ -66,9 +66,10 @@ After examination of the data, the following actions were performed:
 
 ![The optimized model](Screenshots/Picture5.png)
 
-**Conclusion:** The first logistic regression model reveals a high precision for the positive class (0.78) and a high recall (0.98); the second model shows a decrease in precision (0.71) but an improvement in recall (0.51) for the negative class. The overall accuracy of the first model is 80%, while the second model's accuracy is 78%. Based on this analysis, the polynomial features and L1 regularization included in the second model did not significantly improve the model's performance and even reduced its precision in some cases. 
+**Conclusion** 
+The first logistic regression model reveals a high precision for the positive class (0.78) and a high recall (0.98); the second model shows a decrease in precision (0.71) but an improvement in recall (0.51) for the negative class. The overall accuracy of the first model is 80%, while the second model's accuracy is 78%. Based on this analysis, the polynomial features and L1 regularization included in the second model did not significantly improve the model's performance and even reduced its precision in some cases. 
 
-###  Create a Neural Network (NN) Models 
+###  Neural Network (NN) Models 
 **First NN Model**
 - A first NN model of a sequential NN model comprising two hidden layers and one output layer was created.
 - The first hidden layer was added for receiving the input data of the features in the X_train data and comprised of 64 neurons and a ReLU activation function.
@@ -102,7 +103,6 @@ After examination of the data, the following actions were performed:
 - The third NN model was fitted as a function of X_train, y_train, 50 epochs, 32 samples used per iteration, and a 20% proportion of training data to use for validation during fitting.  
 - The third NN model delivered an accuracy of 0.80.
 
-
 **Fourth NN Model**
 - A fourth NN model of a third sequential NN model comprising four hidden layers and one output layer was created.
 - The first hidden layer was added for receiving the input data corresponding to the X_train features and comprised of 256 neurons, a ReLU activation function, and an L2 regularizer with a coefficient of 0.001 applied to the layer’s weights.
@@ -118,7 +118,7 @@ After examination of the data, the following actions were performed:
 - The model was compiled using the Root Mean Square Propogation (i.e., RMSProp) optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The RMSProp optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training based upon the gradient history corresponding to stochastic gradient descent in the training of deep enural networks.
 - The fourth NN model delivered an accuracy of 0.8049.
 
-**Summary:** 
+**Summary** 
 - First NN Model
   - Accuracy: 0.80 The first neural network model, using two hidden layers with 15 and 10 neurons respectively demonstrated excellent performance, achieving an accuracy of 80%. This confirms that even a relatively simple neural network can effectively solve the binary classification task.
 
@@ -128,10 +128,11 @@ After examination of the data, the following actions were performed:
 - Fourth NN Model
   - Accuracy: 0.80 The third neural network model, featuring a multi-layer architecture with a large number of neurons (256, 128, 64, 32), BatchNormalization, and Dropout in each layer, along with the RMSprop optimizer with a lower learning rate, also showed high accuracy at 80%. This demonstrates that a model with a more complex architecture and additional measures to prevent overfitting can maintain stable performance.
 
-**Conclusion:** Neural networks have demonstrated their ability to solve the loan status classification task with high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
+**Conclusion** 
+Neural networks have demonstrated their ability to solve the loan status classification task with high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
 
 
-###  Create a K-Nearest Neighbors (KNN) Models
+###  K-Nearest Neighbors (KNN) Models
 **First KNN Model**
 - A first KNN model was created with the number of neighbors parameter set to 30.
 - A cross-validated accuracy score for the model was calculated as a cross-validation function spitting the X_train and y_train data into 5 validation folds and evaluating the model's performance on each fold.
@@ -173,7 +174,7 @@ After examination of the data, the following actions were performed:
 -  Generally, KNN models are considered fairly simple models, so it is logical that the accuracy turned out to be lower than that of NN models discusssed above.
 
 
-###  Create a Gradient-Boosting (GB) Models
+###  Gradient-Boosting (GB) Models
 **First GB Model**
 - A Light Gradient-Boosting Machine (LightGBM) model was created and fitted as a function of X_train and y_train data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
@@ -192,7 +193,7 @@ After examination of the data, the following actions were performed:
 -  The LightGBM model demonstrates a balanced performance with good precision and recall for both classes, making it a reliable choice for this classification problem.  When compared with the KNN models, all have shown strong performance in predicting loan statuses but still lower than NN models. The Third KNN Model particularly excels in identifying approved loans with high precision and recall, while the LightGBM model offers balanced and reliable predictions for both approved and rejected loans. These results highlight the effectiveness of both models in handling the binary classification task, providing a solid foundation for further improvements and applications in loan status prediction.
 
 
-###  Create Random Forest Model
+###  Random Forest Model
 - A random forest model comprised of 500 estimators and a reproducibility random state of 78 was created and fitted as a function of X_train and y_train data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - The model was evaluated using a confusion matrix and a classification report generated as a function of y_test and y_pred data.
@@ -219,8 +220,7 @@ After examination of the data, the following actions were performed:
 **Conclusion** 
 -  The Random Forest model successfully demonstrates its capability in predicting loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
 
-
-###  Create a Linear Regression Model
+###  Visual Analysis of Numerical Columns
 - A heat map of the original data was created to determine the correlations of the numerical columns.
 - There are two positive correlations.
   - ApplicantIncome v. LoanAmount
@@ -245,6 +245,7 @@ After examination of the data, the following actions were performed:
     
 ![The optimized model](Screenshots/Picture23.png)
 
+###  Linear Regression Model
 - A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
 - The model coeffient (i.e., slope) of the regression line is 0.007927.
 - The model intercept (i.e., y-intercept) of the regression line is 103.57.   
