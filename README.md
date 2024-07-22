@@ -220,34 +220,35 @@ Neural networks have demonstrated their ability to solve the loan status classif
 **Conclusion** 
 -  The Random Forest model successfully demonstrates its capability in predicting loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
 
-###  Visual Analysis of Numerical Columns
-- A heat map of the original data was created to determine the correlations of the numerical columns.
-- There are two positive correlations.
-  - ApplicantIncome v. LoanAmount
-  - CoapplicantIncome v. LoanAmount
-- The following presents the heat map of the original data:   
+### Linear Regression Models  
+- Visual Analysis for Examiantion of Numerical Columns
+  - A heat map of the original data was created to determine the correlations of the numerical columns.
+  - There are two positive correlations.
+    - ApplicantIncome v. LoanAmount
+    - CoapplicantIncome v. LoanAmount
+  - The following presents the heat map of the original data:   
 
-![The optimized model](Screenshots/Picture19.png)
+  ![The optimized model](Screenshots/Picture19.png)
 
-- The following presents a histogram of ApplicantIncome v. Count and a boxplot of ApplicantIncome:     
+  - The following presents a histogram of ApplicantIncome v. Count and a boxplot of ApplicantIncome:     
 
-![The optimized model](Screenshots/Picture20.png)
+  ![The optimized model](Screenshots/Picture20.png)
 
-- The following presents a sactterplot of Applicant Income v. Loan Amount:     
+  - The following presents a sactterplot of Applicant Income v. Loan Amount:     
    
-![The optimized model](Screenshots/Picture21.png)
+  ![The optimized model](Screenshots/Picture21.png)
 
-- The following presents a scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
+  - The following presents a scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
 
-![The optimized model](Screenshots/Picture22.png)
+  ![The optimized model](Screenshots/Picture22.png)
 
-- The following presents a second scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
+  - The following presents a second scatterplot of Total Applicant Income (ApplicantIncome + CoapplicantIncome) v. Loan Amount:     
     
-![The optimized model](Screenshots/Picture23.png)
+  ![The optimized model](Screenshots/Picture23.png)
 
-###  Linear Regression Model
-- A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
-- The model coeffient (i.e., slope) of the regression line is 0.007927.
-- The model intercept (i.e., y-intercept) of the regression line is 103.57.   
-- The Mean Absolute Percentage Error (MAPE) is 0.3387.
-- The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
+- Linear Regression Models
+  - A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
+  - The model coeffient (i.e., slope) of the regression line is 0.007927.
+  - The model intercept (i.e., y-intercept) of the regression line is 103.57.   
+  - The Mean Absolute Percentage Error (MAPE) is 0.3387.
+  - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
