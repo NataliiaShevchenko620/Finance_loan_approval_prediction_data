@@ -2,15 +2,15 @@
 
 ## Presented by Group 4
 * Brent Beachtel
+* Justin Bein
 * Tico Brown
 * Jim Haugen
-* Celina K
-* Justin
+* Celina Kamler
 * Nataliia Shevchenko
 
 
 ### Purpose of the Analysis 
-The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging neural networks, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
+The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
 
 
 
