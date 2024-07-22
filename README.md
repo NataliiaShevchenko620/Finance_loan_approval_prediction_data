@@ -16,7 +16,7 @@ The purpose of this analysis is to develop a machine learning model capable of p
 
 ## Overview of the Analysis
 
-### Data Preprossing
+### Data Preprocessing
 The original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
 - **Loan_ID:** Unique identifier for each row. 
 - **gender:** Gender of the applicant.
