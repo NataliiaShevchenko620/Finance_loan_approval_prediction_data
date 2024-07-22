@@ -51,10 +51,7 @@ After examination of the data, the following actions were performed:
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - A confusion matrix is a useful tool for evaluating the performance of a classification model. The matrix provides information about true positives (TPs), true negatives (TNs), false positives (FPs), and false negatives (FNs).  The following Confusion Matrix of this logistic regression model was generated as a function of the y_test and y_pred data:
 
-![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
-  ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
-    ![image](https://github.com/NataliiaShevchenko620/Finance_loan_approval_prediction_data/tree/main/Screenshots/Picture3.png)
-
+![The optimized model](Screenshots/Picture3.png)
 
 - A classification report is commonly used to evaluate the performance of a classification model in terms of precision, recall, F1-score, and support. The following Classfication Report of this logistic regression model was generated as a function of the y_test and y_pred data:
 
