@@ -32,6 +32,16 @@ def index():
         return render_template('index.html', result=result)
     return render_template('index.html')
 
+
+@app.route("/tableau")
+def tableau():
+    print('here')
+    """
+    Route to render the Tableau dashboard
+    """
+    return render_template('tableau.html')
+
+
 def predict(input_data):
     """
     Helper function to make predictions based on input data.
