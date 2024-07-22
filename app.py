@@ -27,7 +27,7 @@ def index():
         result = predict(input_data)
         return render_template('index.html', choices=choices, result=result)
     else: 
-        return render_template('index.html', choices=choices)
+        return render_template('index.html', choices=choices, result='Yes')
     
 @app.route("/tableau")
 def tableau():
