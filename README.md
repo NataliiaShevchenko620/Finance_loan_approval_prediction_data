@@ -8,9 +8,9 @@
 * Celina Kamler
 * Nataliia Shevchenko
 
-# Project Structure
+## Project Structure
 
-## Directory Overview
+### Directory Overview
 
 ├── Resources
 │   ├── raw_data           # Raw data files
