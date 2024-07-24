@@ -8,15 +8,16 @@
 * Celina Kamler
 * Nataliia Shevchenko
 
+## Analysis Overview
 
-## Purpose of the Analysis 
+### Purpose 
 The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
 
 
 
-## Overview of the Analysis
+### Overview of the Analysis
 
-### Data Preprossing
+#### Data Preprossing
 The original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
 - **Loan_ID:** Unique identifier for each row. 
 - **gender:** Gender of the applicant.
@@ -221,7 +222,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 -  The Random Forest model successfully demonstrates its capability in predicting loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
 
 ### Linear Regression Models  
-- Visual Analysis for Examiantion of Numerical Columns
+- Visual Examination of Numerical Columns
   - A heat map of the original data was created to determine the correlations of the numerical columns.
   - There are two positive correlations.
     - ApplicantIncome v. LoanAmount
@@ -252,3 +253,10 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - The model intercept (i.e., y-intercept) of the regression line is 103.57.   
   - The Mean Absolute Percentage Error (MAPE) is 0.3387.
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
+
+   
+A Flask app was created which initialized a Flask web application, loaded assets (including a trained model and scaler), and defined routes for handling GET and POST requests. A predict function was designed to process input data, convert categorical features, scale continuous features, and make predictions. A Tableau dashboard was rendered. 
+
+We've defined an app object.
+
+The line you’ve provided is calling the run() method on an object named app. To execute this code, you’ll need to make sure that:
