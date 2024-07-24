@@ -11,7 +11,7 @@
 ## Analysis Overview
 
 ### Purpose 
-The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
+The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants. 
 
 ### Data Preprocessing
 Referring to the file entitled "Finance_loan_approval_prediction_data_collab.ipynb" found in "ML_test" folder of the main branch, the original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
@@ -251,10 +251,15 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
 
 ### Selection of Third NN Model and Employment of Pickle Files
-The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file entitled "training.ipynb" found in the "training" folder of the main branch.  As such, it would not be necessary to retrain the model from scratch.  The following files were produced and in the "training" folder of the main branch:
+The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file entitled "training.ipynb" found in the "training" folder of the main branch.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced and are found in the "training" folder of the main branch:
 - choices.pkl;
 - scaler.pkl; and
 - model.pkl
 
-### Flask Application 
-The three 
+### Flask Application
+The three pickle files were loaded into a Flask application entitled "app.py" (Flask app) and found in branch_Brent. It is known that pickle files serve as a Python web framework and facilitate the building of web applications.  Herein, 
+- **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data.  The "choices.pkl" file contained both categorical and numerical columns from which a categorical list is created. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function .
+- **Index Function:** The Index Function is instrumental in providing a communication interface with an index.html file comprised of code corresponding to an applicant's web interface through which the applicant provides the input data used in predicting an approval or denial of the mortgage.  After recieving the input data, the Index Function calls the Prediction Function and is returned with the "Yes" or "No" as a discussed above. Once received, data representative of the "Yes" or "No" is communcatied to the index.htlm file.
+**index.html:** 
+
+daa representtive of the  the input data represenative    The Flask app employed the categorical list which, in turn, was used in a Prediction Function, a function which was instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data received through an index.html file.  The output of the Prediction Function is a "Yes" or "No" indicative of whether the applicant is predicted to beapproved or denied a mortgage, respectively.   or wfrom which the applicant function     The categorical columns The Flask app defined and employed a prediction function comprised of, in part, this pickel file.  The prediction function was defined to provide a respodelivered a "Yes" or 'No" response were employed   Because this project is directed towards rpand 
