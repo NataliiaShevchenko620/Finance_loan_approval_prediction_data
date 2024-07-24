@@ -34,7 +34,7 @@
 └── app.py                 # Main flask application
 
 ### How to Run
-Enter "python app.py" or "python3 app.py" from the terminal.  This will launch the Flask web application where you can view the main webpage and applicant interface and the Tableau analysis.
+Enter "python app.py" or "python3 app.py" from the terminal.  This will launch the Flask web application where you can view the main webpage with applicant interface and Tableau analysis.
 
 
 ## Analysis Overview
