@@ -34,7 +34,7 @@
 └── app.py                 # Main flask application
 
 ### How to Run
-Enter "python app.py" or "python3 app.py" from the terminal.  This will launch the Flask web application where you can view the main webpage with applicant interface and Tableau analysis.
+Enter "python app.py" or "python3 app.py" from the terminal.  This will launch the Flask web application and/or provide you with a link (e.g., http://127.0.0.1:5000) where you can view the main webpage with applicant interface and Tableau analysis.
 
 
 ## Analysis Overview
@@ -125,23 +125,23 @@ The first logistic regression model reveals a high precision for the positive cl
 - The second hidden layer comprised of 32 neurons and a ReLU activation function was added. 
 - The regularization technique was applied.
 - The output hidden layer comprised of 1 fully-connected neuron and a sigmoid activation function was added. 
-- The model was compiled using the Adam optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The Adam optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training to improve convergence speed and performance. The binary_crossentropy loss function measures the difference between predicted probabilities and actual class labels.
+- The model was compiled using the Adam optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discussed above). The Adam optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training to improve convergence speed and performance. The binary_crossentropy loss function measures the difference between predicted probabilities and actual class labels.
 - The third NN model was fitted as a function of X_train, y_train, 50 epochs, 32 samples used per iteration, and a 20% proportion of training data to use for validation during fitting.  
 - The third NN model delivered an accuracy of 0.80.
 
 **Fourth NN Model**
 - A fourth NN model of a third sequential NN model comprising four hidden layers and one output layer was created.
-- The first hidden layer was added for receiving the input data corresponding to the X_train features and comprised of 256 neurons, a ReLU activation function, and an L2 regularizer with a coefficient of 0.001 applied to the layer’s weights.
+- The first hidden layer was added for receiving the input data corresponding to the X_train features and comprised of 256 neurons, a ReLU activation function, and L2 regularization having a coefficient of 0.001 being applied to the layer’s weights.
 - A normalization technique was applied to improve convergence and generalization by ensuring that the mean activation is close to zero and the standard deviation is close to one.
 - The regularization technique discussed above was applied.
-- The second hidden layer comprised of 128 neurons, a ReLU activation function, and the L2 regularizer was added.
+- The second hidden layer comprised of 128 neurons, a ReLU activation function, and L2 regularization was added.
 - The normalization and regularization techniques were applied.
-- The third hidden layer comprised of 64 neurons, a ReLU activation function, and the L2 regularizer was added. 
+- The third hidden layer comprised of 64 neurons, a ReLU activation function, and L2 regularization was added. 
 - The normalization and regularization techniques were applied.
-- The fourth hidden layer comprised of 32 neurons, a ReLU activation function, and the L2 regularizer was added. 
+- The fourth hidden layer comprised of 32 neurons, a ReLU activation function, and the L2 regularization was added. 
 - The normalization and regularization techniques were applied.
 - The output layer comprised of 1 fully-connected neuron and a sigmoid activation function was added. 
-- The model was compiled using the Root Mean Square Propogation (i.e., RMSProp) optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The RMSProp optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training based upon the gradient history corresponding to stochastic gradient descent in the training of deep enural networks.
+- The model was compiled using the Root Mean Square Propagation (i.e., RMSProp) optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discussed above). The RMSProp optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training based upon the gradient history corresponding to stochastic gradient descent in the training of deep neural networks.
 - The fourth NN model delivered an accuracy of 0.8049.
 
 **Summary** 
@@ -179,7 +179,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 **Third KNN Model**
 - A third KNN model was created with grid search.
 - A parameter grid for hyperparameter tuning of the model was defined with 30 neighbors (either uniform or distance-based weights), and distance metrics comprised of Euclidean distance, Manhattan distance (city block distance), and Minkowski distance for measuring similarity between data points.
-- A grid search using cross-validation was set up to find the best hyperparameters of the model as a function of, in part, the parameter grid, 5-fold cross-validaation, and accuracy optimization.  
+- A grid search using cross-validation was set up to find the best hyperparameters of the model as a function of, in part, the parameter grid, 5-fold cross-validation, and accuracy optimization.  
 - The grid search was fitted with X_train and y_train data.  
 - The best hyperparameters were determined.  
 - A best model was trained with the best hyperparameters.
@@ -197,7 +197,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - This model demonstrates a high precision for predicting positive loan statuses and an excellent recall, indicating that it effectively identifies approved loans.  
   
 **Conclusion** 
--  Generally, KNN models are considered fairly simple models, so it is logical that the accuracy turned out to be lower than that of NN models discusssed above.
+-  Generally, KNN models are considered fairly simple models, so it is logical that the accuracy turned out to be lower than that of NN models discussed above.
 
 
 ###  Gradient-Boosting (GB) Models
@@ -224,7 +224,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - The model was evaluated using a confusion matrix and a classification report generated as a function of y_test and y_pred data.
 - Feature importances were determined.
-- The following presents the Confusion Matrix evaluation, Classfication Report evaluation, and Feature Importances of the model:   
+- The following presents the Confusion Matrix evaluation, Classification Report evaluation, and Feature Importances of the model:   
   
 ![The optimized model](Screenshots/Picture16.png)
     
@@ -260,7 +260,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 
   ![The optimized model](Screenshots/Picture20.png)
 
-  - The following presents a sactterplot of Applicant Income v. Loan Amount:     
+  - The following presents a scatterplot of Applicant Income v. Loan Amount:     
    
   ![The optimized model](Screenshots/Picture21.png)
 
@@ -274,7 +274,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 
 - Linear Regression Models
   - A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
-  - The model coeffient (i.e., slope) of the regression line is 0.007927.
+  - The model coefficient (i.e., slope) of the regression line is 0.007927.
   - The model intercept (i.e., y-intercept) of the regression line is 103.57.   
   - The Mean Absolute Percentage Error (MAPE) is 0.3387.
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
@@ -290,17 +290,20 @@ The three pickle files were loaded into a Flask application entitled "app.py" (F
 
 - **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data.  The "choices.pkl" file contained both categorical and numerical columns from which a categorical list is created. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function.
 
-- **Index Function:** The Index Function is instrumental in providing a communication interface with an index.html file comprised of code corresponding to an applicant's web interface through which the applicant provides the input data used in predicting an approval or denial of the mortgage.  After recieving the input data, the Index Function calls the Prediction Function and is returned with the "Yes" or "No" as a discussed above. Once received, data representative of the "Yes" or "No" is communcatied to the index.htlm file.
+- **Index Function:** The Index Function is instrumental in providing a communication interface with an index.html file comprised of code corresponding to an applicant's web interface through which the applicant provides the input data used in predicting an approval or denial of the mortgage.  After receiving the input data, the Index Function calls the Prediction Function and is returned with the "Yes" or "No" as a discussed above. Once received, data representative of the "Yes" or "No" is communicated to the index.htlm file.
 
-### User Interface
-The index.html file is found in the "training" folder of the main branch. The file is instrumental in creating and providing the applicant with a web interface through which to add the following information about the applicant:
-- Combined_income;
-- Credit_history;
-- Requested_amount;
-- Community_type;
-- Dependents; and
-- College_degree.
-The interface also includes a "Submit" button that, when clicked, communicatively forwards the input data to the Flask application.  In response, the "Yes" or "No" is generated by Index Function is provided to index.html.  
-- If the information representative of "Yes" is recieved, a gif presenting a treasure chest of gold is displayed to the applicant indicatiing a likely approval of a mortgage.
-- If the information representative of "No" is recieved, a gif presenting a Donald Duck waving an empty money bag with the caption "Awe No Money" is displayed to the applicant indicatiing a likely denial of a mortgage. 
- 
+### User Interface and Tableau Dashboard
+The index.html file is found in the "training" folder of the main branch. The file is instrumental in creating and providing the applicant with a web interface.
+- One component of the interface is comprised of form in which the applicant provides the following information:
+  - Combined_income;
+  - Credit_history;
+  - Requested_amount;
+  - Community_type;
+  - Dependents; and
+  - College_degree.
+
+  The interface also includes a "Submit" button that, when clicked, communicatively forwards the input data to the Flask application.  In response, the "Yes" or "No" is generated by Index Function is provided to index.html.  
+  - If the information representative of "Yes" is received, a gif presenting a treasure chest of gold is displayed to the applicant indicating a likely approval of a mortgage.
+  - If the information representative of "No" is received, a gif presenting a Donald Duck waving an empty money bag with the caption "Awe No Money" is displayed to the applicant indicating a likely denial of a mortgage. 
+
+- A second component of the interface is comprised of a "View Tableau Dashboard" button which, when clicked, replaces the interface a tableau page on which a scatterplot of "Income v. Loan Amount" is superimposed by a line as determined by the Linear Regression formula discussed above.  In addition, the applicant may also enter input data representative of total monthly income. In response, Tableau provides a predicted maximum amount to which the applicant could foresee being approved for the mortgage. 
