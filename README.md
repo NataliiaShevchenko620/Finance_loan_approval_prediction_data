@@ -73,13 +73,13 @@ After examination of the data, the following actions were performed:
 
 ### Logistic Regression Models
 **First Logistic Regression Model:**
-- A logistic regression model comprising reproducibility random state of 1 was created and fitted as a function of X_train and y_test data.
+- A logistic regression model comprising a reproducibility random state of 1 was created and fitted as a function of X_train and y_test data.
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - A confusion matrix is a useful tool for evaluating the performance of a classification model. The matrix provides information about true positives (TPs), true negatives (TNs), false positives (FPs), and false negatives (FNs).  The following Confusion Matrix of this logistic regression model was generated as a function of the y_test and y_pred data:
 
 ![The optimized model](Screenshots/Picture3.png)
 
-- A classification report is commonly used to evaluate the performance of a classification model in terms of precision, recall, F1-score, and support. The following Classfication Report of this logistic regression model was generated as a function of the y_test and y_pred data:
+- A classification report is commonly used to evaluate the performance of a classification model in terms of precision, recall, F1-score, and support. The following Classification Report of this logistic regression model was generated as a function of the y_test and y_pred data:
 
 ![The optimized model](Screenshots/Picture4.png)
 
