@@ -3,9 +3,9 @@ body {
     font-weight: lighter;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
     padding-top: 75px;
     padding-bottom: 75px;
@@ -20,6 +20,8 @@ body {
     width: 100%;
     text-align: center;
     overflow: hidden;
+    margin-bottom: 20px;
+    /* Add margin-bottom to separate from the button */
 }
 
 h1 {
@@ -45,6 +47,7 @@ select {
     border-radius: 5px;
     text-align: center;
     box-sizing: border-box;
+    /* Ensures padding is included in the width */
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -57,7 +60,8 @@ input[type="number"]::-webkit-scrollbar {
     display: none;
 }
 
-button[type="submit"] {
+button[type="submit"],
+.button-link {
     background-color: #4facfe;
     color: white;
     padding: 10px;
@@ -66,9 +70,12 @@ button[type="submit"] {
     cursor: pointer;
     width: 100%;
     margin-top: 10px;
+    text-decoration: none;
+    display: block;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+.button-link:hover {
     background-color: #007bff;
 }
 
@@ -80,4 +87,17 @@ h2 {
 span {
     font-weight: bold;
     color: #007bff;
+}
+
+.button-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.gif {
+    /* display: none; */
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
 }
