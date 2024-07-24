@@ -8,13 +8,10 @@
 * Celina Kamler
 * Nataliia Shevchenko
 
-## Analysis Overview
+# Project Structure
 
-### Purpose 
-The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants. 
+## Directory Overview
 
-### Project Structure
-.
 ├── Resources
 │   ├── raw_data           # Raw data files
 │   └── cleaned_data       # Cleaned data files
@@ -42,6 +39,12 @@ To start the application, run the following command in your terminal:
 - or
   python3 app.py
 This will launch the Flask web application where you can view the main webpage and applicant interface and the Tableau analysis.
+
+
+## Analysis Overview
+
+### Purpose 
+The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants. 
 
 ### Data Preprocessing
 Referring to the file entitled "Finance_loan_approval_prediction_data_collab.ipynb" found in "ML_test" folder of the main branch, the original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
