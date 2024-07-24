@@ -1,21 +1,81 @@
 from flask import Flask, render_template, request
 import pickle
 import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
 
-# Create the Flask app
 app = Flask(__name__)
 
-# Load assets
-with open('training/model.pkl', 'rb') as f: 
+# Load model, scaler, and choices dictionary
+with open('training/model.pkl', 'rb') as f:
     model = pickle.load(f)
-with open('training/scaler.pkl', 'rb') as f: 
+with open('training/scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
-with open('training/choices.pkl', 'rb') as f: 
+with open('training/choices.pkl', 'rb') as f:
     choices = pickle.load(f)
 
-# Get list of categorical and numerical columns
+# Define categorical and continuous columns
 cat_cols = [col for col in choices.keys() if choices[col] is not None]
 cont_cols = [col for col in choices.keys() if choices[col] is None]
+
+def predict(input_data): 
+    """
+    Helper function to make predictions based on input data.
+    """
+    # Create a DataFrame with the correct columns
+    X = pd.DataFrame(columns=choices.keys())
+    
+    # Map input data to the correct columns
+    X.loc[0, 'ApplicantIncome'] = input_data.get('Combined_income', np.nan)
+    X.loc[0, 'CoapplicantIncome'] = 0  # Set CoapplicantIncome to 0 explicitly
+    X.loc[0, 'LoanAmount'] = input_data.get('Requested_amount', np.nan)
+    X.loc[0, 'Loan_Amount_Term'] = 360  # Example value, adjust as necessary
+    
+    # Handle categorical variables
+    X.loc[0, 'Credit_History'] = 1 if input_data['Credit_history'] == 'Yes' else 0
+    X.loc[0, 'Gender_Female'] = 1 if input_data.get('Gender') == 'Female' else 0
+    X.loc[0, 'Gender_Male'] = 1 if input_data.get('Gender') == 'Male' else 0
+    X.loc[0, 'Married_No'] = 1 if input_data.get('Married') == 'No' else 0
+    X.loc[0, 'Married_Yes'] = 1 if input_data.get('Married') == 'Yes' else 0
+    X.loc[0, 'Dependents_0'] = 1 if input_data.get('Dependents') == '0' else 0
+    X.loc[0, 'Dependents_1'] = 1 if input_data.get('Dependents') == '1' else 0
+    X.loc[0, 'Dependents_2'] = 1 if input_data.get('Dependents') == '2' else 0
+    X.loc[0, 'Dependents_3+'] = 1 if input_data.get('Dependents') == '3+' else 0
+    X.loc[0, 'Education_Graduate'] = 1 if input_data.get('College_degree') == 'Yes' else 0
+    X.loc[0, 'Education_Not Graduate'] = 1 if input_data.get('College_degree') == 'No' else 0
+    X.loc[0, 'Self_Employed_No'] = 1 if input_data.get('Self_Employed') == 'No' else 0
+    X.loc[0, 'Self_Employed_Yes'] = 1 if input_data.get('Self_Employed') == 'Yes' else 0
+    X.loc[0, 'Property_Area_Rural'] = 1 if input_data.get('Community_type') == 'Rural' else 0
+    X.loc[0, 'Property_Area_Semiurban'] = 1 if input_data.get('Community_type') == 'Suburban' else 0
+    X.loc[0, 'Property_Area_Urban'] = 1 if input_data.get('Community_type') == 'Urban' else 0
+    
+    # Ensure all columns are present and in correct order
+    X = X.astype(float)  # Convert DataFrame to float dtype
+    
+    # Add columns that were not explicitly set, defaulting to NaN
+    missing_cols = set(choices.keys()) - set(X.columns)
+    for col in missing_cols:
+        X.loc[0, col] = np.nan
+    
+    # Debugging statements to inspect the data
+    print("Input DataFrame:")
+    print(X.head())
+    
+    # Scale input data
+    X_transformed = scaler.transform(X)
+    print("Transformed Features:")
+    print(X_transformed)
+    
+    # Make prediction
+    output = model.predict(X_transformed)
+    print("Model Output:")
+    print(output)
+    
+    # Adjusted thresholding logic to determine binary class
+    prediction = (output[0] < 0.5).astype(int)
+    
+    # Return 'No' for 0 and 'Yes' for 1
+    return 'No' if prediction == 0 else 'Yes'
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -23,12 +83,24 @@ def index():
     Function to handle GET and POST requests. Returns result only if POST request.
     """
     if request.method == 'POST':
-        input_data = request.form.to_dict()
+        # Extract and process input data
+        input_data = {
+            'Combined_income': request.form.get('Combined_income', type=float),
+            'Credit_history': request.form.get('Credit_history'),
+            'Requested_amount': request.form.get('Requested_amount', type=float),
+            'Community_type': request.form.get('Community_type'),
+            'Dependents': request.form.get('Dependents'),
+            'College_degree': request.form.get('College_degree'),
+            'Gender': request.form.get('Gender'),
+            'Married': request.form.get('Married'),
+            'Self_Employed': request.form.get('Self_Employed')
+        }
+        
         result = predict(input_data)
-        return render_template('index.html', choices=choices, result=result)
-    else: 
-        return render_template('index.html', choices=choices, result='Yes')
+        return render_template('index.html', result=result)
     
+    return render_template('index.html', result=None)
+
 @app.route("/tableau")
 def tableau():
     """
@@ -36,33 +108,9 @@ def tableau():
     """
     return render_template('tableau.html')
 
-
-def predict(input_data):
-    """
-    Helper function to make predictions based on input data.
-    """
-    # Create input DataFrame with the correct columns
-    input_df = pd.DataFrame([input_data])
-    X = pd.DataFrame(columns=choices.keys())
-    X = pd.concat([X, input_df], ignore_index=True)
-    
-    # Handle categorical features: Convert to numeric if necessary
-    X[cat_cols] = X[cat_cols].astype('category').apply(lambda x: x.cat.codes)
-    
-    # Handle continuous features: Convert to float
-    X[cont_cols] = X[cont_cols].astype(float)
-    
-    # Ensure all columns are present
-    X = X.reindex(columns=choices.keys(), fill_value=0)
-    
-    # Scale input data
-    X_transformed = scaler.transform(X)
-    
-    # Make prediction
-    output = model.predict(X_transformed)
-    
-    # Return 'No' for 0 and 'Yes' for 1
-    return 'Yes' if output[0] == 1 else 'No'
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+
+
+
+

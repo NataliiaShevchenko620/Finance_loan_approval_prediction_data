@@ -5,108 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Prediction</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            font-weight: lighter;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            margin: 0;
-            padding-top: 75px;
-            padding-bottom: 75px;
-        }
-
-        .container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 450px;
-            width: 100%;
-            text-align: center;
-            overflow: hidden;
-            margin-bottom: 20px; /* Add margin-bottom to separate from the button */
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #555;
-            text-align: left;
-        }
-
-        input[type="number"],
-        select {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            box-sizing: border-box; /* Ensures padding is included in the width */
-        }
-
-        input[type="number"]::-webkit-outer-spin-button,
-        input[type="number"]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        input[type="number"]::-webkit-scrollbar {
-            display: none;
-        }
-
-        button[type="submit"], .button-link {
-            background-color: #4facfe;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            text-decoration: none;
-            display: block;
-        }
-
-        button[type="submit"]:hover, .button-link:hover {
-            background-color: #007bff;
-        }
-
-        h2 {
-            margin-top: 20px;
-            color: #333;
-        }
-
-        span {
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        .button-container {
-            width: 100%;
-            max-width: 450px;
-            text-align: center;
-        }
-
-        .gif {
-            display: none;
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
@@ -148,15 +47,23 @@
 
             <button type="submit">Submit</button>
         </form>
-        <h2>Result: <span id="result">{{result}}</span></h2>
-
-
+        {% if result == 'Yes' %}
+        <h2>Result:
+            <span>Yes</span>
+            <img id="yesGif" class="gif" src="https://img1.picmix.com/output/stamp/normal/3/8/9/3/1343983_d419c.gif"
+                alt="Yes GIF">
+        </h2>
+        {% elif result == 'No' %}
+        <h2>Result:
+            <span>No</span>
+            <img id="noGif" class="gif" src="https://gifdb.com/images/high/donald-duck-awe-no-money-t9cep261tpm7hzjn.gif"
+                alt="No GIF">
+        </h2>
+        {% endif %}
         <div class="button-container">
             <a href="/tableau" class="button-link">View Tableau Dashboard</a>
         </div>
     </div>
-    
-
 </body>
 
 </html>
