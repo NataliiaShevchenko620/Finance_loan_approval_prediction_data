@@ -13,22 +13,18 @@
 ### Purpose 
 The purpose of this analysis is to develop a machine learning model capable of predicting loan approval of applicant(s) seeking a mortgage.  By leveraging machine learning and the models employed in machine learning, the goal is to create a binary classifier that can determine whether applicants will be successful in receiving a loan. This model aims to help loan providers to make data-driven decisions in selecting applicants, thereby providing one source for predicting the approval of mortgage applicants.
 
-
-
-### Overview of the Analysis
-
-#### Data Preprossing
-The original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
+### Data Preprocessing
+Referring to the file entitled "Finance_loan_approval_prediction_data_collab.ipynb" found in "ML_test" folder of the main branch, the original data was provided in a .csv.  It was read into a Pandas DataFrame and found to comprise 614 rows of data representative of previous mortgage applicants comprised of the following features:
 - **Loan_ID:** Unique identifier for each row. 
 - **gender:** Gender of the applicant.
 - **Dependents:** Number of dependents of the applicant.
 - **Education:** College or non-college education of the applicant.
-- **Self_Employed:** Self-employment of non-self-employment of the applicant.
+- **Self_Employed:** Whether or not the applicant was self-employed (Y/N).
 - **ApplicantIncome:** Income of the applicant.
 - **CoapplicantIncome:** Income of a co-applicant (if present).
 - **LoanAmount:** Loan amount of the mortgage requested by the applicant (in thousands).
 - **Loan_Amount_Term:** Number of months for the term of the mortgage (in months).
-- **Credit_History:** Previous credit history of the applicant's repayment of debts.
+- **Credit_History:** Whether or not the applicant had any prior credit history (Y/N).
 - **Property_Area:** Area of the property to which mortgage will be applied, i.e., Urban/Rural/Semiurban.
 - **Loan_Status:** Approval or non-approval of the mortgage for the applicant, i.e., Y-Yes, N-No.
 
@@ -254,9 +250,11 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - The Mean Absolute Percentage Error (MAPE) is 0.3387.
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
 
-   
-A Flask app was created which initialized a Flask web application, loaded assets (including a trained model and scaler), and defined routes for handling GET and POST requests. A predict function was designed to process input data, convert categorical features, scale continuous features, and make predictions. A Tableau dashboard was rendered. 
+### Selection of Third NN Model and Employment of Pickle Files
+The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file entitled "training.ipynb" found in the "training" folder of the main branch.  As such, it would not be necessary to retrain the model from scratch.  The following files were produced and in the "training" folder of the main branch:
+- choices.pkl;
+- scaler.pkl; and
+- model.pkl
 
-We've defined an app object.
-
-The line you’ve provided is calling the run() method on an object named app. To execute this code, you’ll need to make sure that:
+### Flask Application 
+The three 
