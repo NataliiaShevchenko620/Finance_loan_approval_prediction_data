@@ -280,7 +280,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
 
 ### Selection of Third NN Model and Employment of Pickle Files
-The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file entitled "training.ipynb" found in the "training" folder of the main branch.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced and are found in the "training" folder of the main branch:
+The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced and are found in the "training" folder of the main branch:
 - choices.pkl;
 - scaler.pkl; and
 - model.pkl
@@ -288,12 +288,12 @@ The Third NN Model was selected from all of the preceding models based upon its 
 ### Flask Application
 The three pickle files were loaded into a Flask application entitled "app.py" (Flask app) and found in branch_Brent. It is known that pickle files serve as a Python web framework and facilitate the building of web applications.  Herein, 
 
-- **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data.  The "choices.pkl" file contained both categorical and numerical columns from which a categorical list is created. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function.
+- **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function.
 
 - **Index Function:** The Index Function is instrumental in providing a communication interface with an index.html file comprised of code corresponding to an applicant's web interface through which the applicant provides the input data used in predicting an approval or denial of the mortgage.  After receiving the input data, the Index Function calls the Prediction Function and is returned with the "Yes" or "No" as a discussed above. Once received, data representative of the "Yes" or "No" is communicated to the index.htlm file.
 
 ### User Interface and Tableau Dashboard
-The index.html file is found in the "training" folder of the main branch. The file is instrumental in creating and providing the applicant with a web interface.
+The index.html file is instrumental in creating and providing the applicant with a web interface.
 - One component of the interface is comprised of form in which the applicant provides the following information:
   - Combined_income;
   - Credit_history;
