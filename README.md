@@ -65,10 +65,10 @@ After examination of the data, the following actions were performed:
 - Numerical columns were defined: ApplicantIncome, CoapplicantIncome, LoanAmount, LoanAmountTerm, CreditHistory, and Loan_status.
 - Missing values of the numerical columns of the train and test subsets were imputed with an imputer value defined by 5 neighbors.
 - Categorical columns of the train and test subsets were converted into dummy/indicator variables.
-- Loan_Status was considered "label" (y) because it is data which will indicate approval of the mortage applicant.
+- Loan_Status was considered "label" (y) because it is data which will indicate approval of the mortgage applicant.
 - All variables except Loan_Status were considered "features" (X) they are the data used to predict the approval of the mortage applicant.
 - Test and train subsets were divided into the following:
-  - First train and test subsets (i.e., y_train and y_test) comprising the "label" column were created .
+  - First train and test subsets (i.e., y_train and y_test) comprising the "label" column were created.
   - Second train and test subsets (i.e., X_train and X_test) comprising the "features" columns were created.
 
 ### Logistic Regression Models
@@ -85,10 +85,10 @@ After examination of the data, the following actions were performed:
 
 **Second Logistic Regression Model:**
 
-- Polynomial features are employed so the model could be trained better on a relatively large set of features.  Here, polynomical features (i.e., X_train_poly, X_test_poly) were created and fitted as a function of X_train and X_test.  
+- Polynomial features are employed so the model could be trained better on a relatively large set of features.  Here, polynomial features (i.e., X_train_poly, X_test_poly) were created and fitted as a function of X_train and X_test.  
 - A second logistic regression model was created and fitted with X_train_poly and y_train data.
 - Prediction data (i.e., y_pred) was re-created as a function of X_test_poly data.
-- The following Classfication Report of the second logistic regression model was generated as a function of the y_test and y_pred data:
+- The following Classification Report of the second logistic regression model was generated as a function of the y_test and y_pred data:
 
 ![The optimized model](Screenshots/Picture5.png)
 
@@ -99,19 +99,19 @@ The first logistic regression model reveals a high precision for the positive cl
 **First NN Model**
 - A first NN model of a sequential NN model comprising two hidden layers and one output layer was created.
 - The first hidden layer was added for receiving the input data of the features in the X_train data and comprised of 64 neurons and a ReLU activation function.
-- A regularization technique for preventing overfitting of the model was added so that 50% of the neutrons were randomly dropped out (i.e., set to zero) to preventing co-adaptation of neurons and encourage the model to learn more robust features.
+- A regularization technique for preventing overfitting of the model was added so that 50% of the neutrons were randomly dropped out (i.e., set to zero) to prevent co-adaptation of neurons and encourage the model to learn more robust features.
 - The second hidden layer comprised of 10 neurons and a ReLU activation function was added. 
 - The regularization technique was applied.
-- The output layer comprised of 1 fully-connected neuron and a sigmoid activation function was added for squashing the output between 0 and 1. 
+- The output layer comprised of 1 fully connected neuron and a sigmoid activation function was added for squashing the output between 0 and 1. 
 - The following presents the structure of the NN model:
     
 ![The optimized model](Screenshots/Picture6.png)
 
 **Second NN Model**
-- A second NN model was complied.
+- A second NN model was compiled.
 - A loss function of cross-entropy was employed. In binary classification tasks, it is commonly employed to measure the difference between predicted and actual labels.
 - An adaptive learning rate optimization algorithm was employed to determine how the model's weights are updated during training.
-- The evaluation metric of accuracy was employed to measure how well the model predicted the correct class by representing the prorortion of correctly predicted samples.
+- The evaluation metric of accuracy was employed to measure how well the model predicted the correct class by representing the proportion of correctly predicted samples.
 - X_train and X_test were amended as a function of a scaling processing technique (i.e., StandardScaler()) so that the features were standardized. StandardScaler() contributes to the robustness, interpretability, and performance of machine learning models trained on diverse datasets.
 - The second NN model was fitted as a function of X_train, y_train and 100 epochs, where the weights of the model are adjusted to minimize the loss function during each epoch.  
 - The following presents the model's loss and accuracy as a function of X_test and y_test:  
@@ -124,8 +124,8 @@ The first logistic regression model reveals a high precision for the positive cl
 - The regularization technique discussed above was applied.
 - The second hidden layer comprised of 32 neurons and a ReLU activation function was added. 
 - The regularization technique was applied.
-- The output hidden layer comprised of 1 fully-connected neuron and a sigmoid activation function was added. 
-- The model was compiled using the Adam optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The Adam optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training to improve convergence speed and performance. The binary_crossentropy loss function measures the difference between predicted probabilities and actual class labels.
+- The output hidden layer comprised of 1 fully connected neuron and a sigmoid activation function was added. 
+- The model was compiled using the Adam optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discussed above). The Adam optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training to improve convergence speed and performance. The binary_crossentropy loss function measures the difference between predicted probabilities and actual class labels.
 - The third NN model was fitted as a function of X_train, y_train, 50 epochs, 32 samples used per iteration, and a 20% proportion of training data to use for validation during fitting.  
 - The third NN model delivered an accuracy of 0.80.
 
@@ -140,8 +140,8 @@ The first logistic regression model reveals a high precision for the positive cl
 - The normalization and regularization techniques were applied.
 - The fourth hidden layer comprised of 32 neurons, a ReLU activation function, and the L2 regularizer was added. 
 - The normalization and regularization techniques were applied.
-- The output layer comprised of 1 fully-connected neuron and a sigmoid activation function was added. 
-- The model was compiled using the Root Mean Square Propogation (i.e., RMSProp) optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discusssed above). The RMSProp optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training based upon the gradient history corresponding to stochastic gradient descent in the training of deep enural networks.
+- The output layer comprised of 1 fully connected neuron and a sigmoid activation function was added. 
+- The model was compiled using the Root Mean Square Propagation (i.e., RMSProp) optimizer, binary_crossentropy loss function, and the evaluation metric of accuracy (discussed above). The RMSProp optimizer is an adaptive learning rate optimization algorithm for adjusting the learning rate during training based on the gradient history corresponding to stochastic gradient descent in the training of deep neural networks.
 - The fourth NN model delivered an accuracy of 0.8049.
 
 **Summary** 
@@ -155,7 +155,7 @@ The first logistic regression model reveals a high precision for the positive cl
   - Accuracy: 0.80 The third neural network model, featuring a multi-layer architecture with a large number of neurons (256, 128, 64, 32), BatchNormalization, and Dropout in each layer, along with the RMSprop optimizer with a lower learning rate, also showed high accuracy at 80%. This demonstrates that a model with a more complex architecture and additional measures to prevent overfitting can maintain stable performance.
 
 **Conclusion** 
-Neural networks have demonstrated their ability to solve the loan status classification task with high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
+Neural networks have demonstrated their ability to solve the loan status classification task with a high accuracy of 80%. Even with the use of different architectures and hyperparameters, the models consistently showed high performance. This confirms that neural networks are a powerful tool for data analysis and can be successfully used to solve binary classification problems. These results provide confidence that neural networks can effectively work with various types of data and can be adapted to solve more complex tasks in the future.
 
 
 ###  K-Nearest Neighbors (KNN) Models
@@ -177,12 +177,12 @@ Neural networks have demonstrated their ability to solve the loan status classif
 ![The optimized model](Screenshots/Picture11.png)
 
 **Third KNN Model**
-- A third KNN model was created with grid search.
+- A third KNN model was created with a grid search.
 - A parameter grid for hyperparameter tuning of the model was defined with 30 neighbors (either uniform or distance-based weights), and distance metrics comprised of Euclidean distance, Manhattan distance (city block distance), and Minkowski distance for measuring similarity between data points.
-- A grid search using cross-validation was set up to find the best hyperparameters of the model as a function of, in part, the parameter grid, 5-fold cross-validaation, and accuracy optimization.  
+- A grid search using cross-validation was set up to find the best hyperparameters of the model as a function of, in part, the parameter grid, 5-fold cross-validation, and accuracy optimization.  
 - The grid search was fitted with X_train and y_train data.  
 - The best hyperparameters were determined.  
-- A best model was trained with the best hyperparameters.
+- The best model was trained with the best hyperparameters.
 - Prediction data (i.e. y_pred) was created as a function of X_test data and the best model.
 - The model was evaluated using a confusion matrix generated as a function of y_test data, y_pred data, and the number of unique labels of the y_train data.
 - The following presents the Confusion Matrix evaluation of the model:
@@ -197,7 +197,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - This model demonstrates a high precision for predicting positive loan statuses and an excellent recall, indicating that it effectively identifies approved loans.  
   
 **Conclusion** 
--  Generally, KNN models are considered fairly simple models, so it is logical that the accuracy turned out to be lower than that of NN models discusssed above.
+-  Generally, KNN models are considered fairly simple models, so, logically, the accuracy turned out to be lower than that of NN models discussed above.
 
 
 ###  Gradient-Boosting (GB) Models
@@ -216,7 +216,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 - This model delivered an accuracy of 0.7642.
   
 **Conclusion** 
--  The LightGBM model demonstrates a balanced performance with good precision and recall for both classes, making it a reliable choice for this classification problem.  When compared with the KNN models, all have shown strong performance in predicting loan statuses but still lower than NN models. The Third KNN Model particularly excels in identifying approved loans with high precision and recall, while the LightGBM model offers balanced and reliable predictions for both approved and rejected loans. These results highlight the effectiveness of both models in handling the binary classification task, providing a solid foundation for further improvements and applications in loan status prediction.
+-  The LightGBM model demonstrates a balanced performance with good precision and recall for both classes, making it a reliable choice for this classification problem.  When compared with the KNN models, all have shown strong performance in predicting loan statuses but are still lower than NN models. The Third KNN Model particularly excels in identifying approved loans with high precision and recall, while the LightGBM model offers balanced and reliable predictions for both approved and rejected loans. These results highlight the effectiveness of both models in handling the binary classification task, providing a solid foundation for further improvements and applications in loan status prediction.
 
 
 ###  Random Forest Model
@@ -224,7 +224,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 - Prediction data (i.e. y_pred) was created as a function of X_test data.
 - The model was evaluated using a confusion matrix and a classification report generated as a function of y_test and y_pred data.
 - Feature importances were determined.
-- The following presents the Confusion Matrix evaluation, Classfication Report evaluation, and Feature Importances of the model:   
+- The following presents the Confusion Matrix evaluation, Classification Report evaluation, and Feature Importances of the model:   
   
 ![The optimized model](Screenshots/Picture16.png)
     
@@ -244,7 +244,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - **Education:** The applicant's educational background is another important factor.
   
 **Conclusion** 
--  The Random Forest model successfully demonstrates its capability in predicting loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
+-  The Random Forest model successfully demonstrates its capability to predict loan statuses with a solid accuracy of 76%. It effectively identifies the majority of approved loans and provides valuable insights into the most influential features affecting loan approval. The feature importance analysis highlights the key factors such as self-employment status, gender, number of dependents, marital status, and education level, which can guide further decision-making and model improvements. These results showcase the robustness and interpretability of the Random Forest model, making it a reliable choice for loan status prediction tasks.
 
 ### Linear Regression Models  
 - Visual Examination of Numerical Columns
@@ -260,7 +260,7 @@ Neural networks have demonstrated their ability to solve the loan status classif
 
   ![The optimized model](Screenshots/Picture20.png)
 
-  - The following presents a sactterplot of Applicant Income v. Loan Amount:     
+  - The following presents a scatterplot of Applicant Income v. Loan Amount:     
    
   ![The optimized model](Screenshots/Picture21.png)
 
@@ -274,13 +274,13 @@ Neural networks have demonstrated their ability to solve the loan status classif
 
 - Linear Regression Models
   - A linear regression model was created and fitted as a function of ApplicantIncome and LoanAmount.
-  - The model coeffient (i.e., slope) of the regression line is 0.007927.
+  - The model coefficient (i.e., slope) of the regression line is 0.007927.
   - The model intercept (i.e., y-intercept) of the regression line is 103.57.   
   - The Mean Absolute Percentage Error (MAPE) is 0.3387.
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
 
 ### Selection of Third NN Model and Employment of Pickle Files
-The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file entitled "training.ipynb" found in the "training" folder of the main branch.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced and are found in the "training" folder of the main branch:
+The Third NN Model was selected from all of the preceding models based on its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file entitled "training.ipynb" found in the "training" folder of the main branch.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced and are found in the "training" folder of the main branch:
 - choices.pkl;
 - scaler.pkl; and
 - model.pkl
@@ -290,7 +290,7 @@ The three pickle files were loaded into a Flask application entitled "app.py" (F
 
 - **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data.  The "choices.pkl" file contained both categorical and numerical columns from which a categorical list is created. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function.
 
-- **Index Function:** The Index Function is instrumental in providing a communication interface with an index.html file comprised of code corresponding to an applicant's web interface through which the applicant provides the input data used in predicting an approval or denial of the mortgage.  After recieving the input data, the Index Function calls the Prediction Function and is returned with the "Yes" or "No" as a discussed above. Once received, data representative of the "Yes" or "No" is communcatied to the index.htlm file.
+- **Index Function:** The Index Function is instrumental in providing a communication interface with an index.html file comprised of code corresponding to an applicant's web interface through which the applicant provides the input data used to predict an approval or denial of the mortgage.  After receiving the input data, the Index Function calls the Prediction Function and is returned with the "Yes" or "No" as discussed above. Once received, data representative of the "Yes" or "No" is communicated to the index.htlm file.
 
 ### User Interface
 The index.html file is found in the "training" folder of the main branch. The file is instrumental in creating and providing the applicant with a web interface through which to add the following information about the applicant:
@@ -301,6 +301,6 @@ The index.html file is found in the "training" folder of the main branch. The fi
 - Dependents; and
 - College_degree.
 The interface also includes a "Submit" button that, when clicked, communicatively forwards the input data to the Flask application.  In response, the "Yes" or "No" is generated by Index Function is provided to index.html.  
-- If the information representative of "Yes" is recieved, a gif presenting a treasure chest of gold is displayed to the applicant indicatiing a likely approval of a mortgage.
-- If the information representative of "No" is recieved, a gif presenting a Donald Duck waving an empty money bag with the caption "Awe No Money" is displayed to the applicant indicatiing a likely denial of a mortgage. 
+- If the information representative of "Yes" is received, a gif presenting a treasure chest of gold is displayed to the applicant indicating a likely approval of a mortgage.
+- If the information representative of "No" is received, a gif presenting a Donald Duck waving an empty money bag with the caption "Awe No Money" is displayed to the applicant indicating a likely denial of a mortgage. 
  
