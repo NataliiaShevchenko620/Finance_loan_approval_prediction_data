@@ -280,13 +280,13 @@ Neural networks have demonstrated their ability to solve the loan status classif
   - The maximum loan amount for a mortgage = 103.57 + (0.007927 * Total Income).
 
 ### Selection of Third NN Model and Employment of Pickle Files
-The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced and are found in the "training" folder of the main branch:
+The Third NN Model was selected from all of the preceding models based upon its overall performance metrics.  Because it is known that pickles files serve as a convenient way to store and retrieve machine learning models and their associated parameters, the Third NN Model was separated and recreated in a separate file.  As such, it would not be necessary to retrain the model from scratch.  The following pickle files were produced:
 - choices.pkl;
 - scaler.pkl; and
 - model.pkl
 
 ### Flask Application
-The three pickle files were loaded into a Flask application entitled "app.py" (Flask app) and found in branch_Brent. It is known that pickle files serve as a Python web framework and facilitate the building of web applications.  Herein, 
+The three pickle files were loaded into a Flask application entitled "app.py". It is known that pickle files serve as a Python web framework and facilitate the building of web applications.  Herein, 
 
 - **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function.
 
