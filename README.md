@@ -11,27 +11,26 @@
 ## Project Structure
 
 ### Directory Overview
-
-├── Resources
-│   ├── raw_data           # Raw data files
-│   └── cleaned_data       # Cleaned data files
-├── Screenshots            # Screenshots related to the project
-├── model_development
-│   ├── final_notebook.ipynb   # Consolidated research notebook downloaded from Google Colab
-│   └── individual_notebooks   # Individual notebooks used in the final notebook
-├── static
-│   └── css
-│       └── styles.css     # CSS styles for the web application (app.py)
-├── tableau
-│   ├── analysis.twbx      # Tableau analysis file
-│   └── analysis.html      # Exported Tableau analysis in HTML format for display in the app
-├── templates
-│   ├── index.html         # Main webpage template
-│   └── tableau.html       # Tableau analysis webpage template
-├── training
-│   ├── train_model.py     # Script for training the final model (neural network)
-│   └── final_model.h5     # Saved final model file
-└── app.py                 # Main flask application
+- **Resources**: Contains data files used in the project.
+  - **raw_data**: Original, unprocessed data.
+  - **cleaned_data**: Data that has been cleaned and preprocessed.
+- **Screenshots**: Images capturing various aspects of the project.
+- **model_development**: Includes notebooks used for developing and refining the model.
+  - **final_notebook.ipynb**: The final consolidated research notebook.
+  - **individual_notebooks**: Individual notebooks that contributed to the final research.
+- **static**: Contains static files used in the web application.
+  - **css**: Styling files for the web application.
+    - **styles.css**: Main CSS file for the application.
+- **tableau**: Files related to Tableau visualizations.
+  - **analysis.twbx**: Tableau workbook file.
+  - **analysis.html**: HTML export of the Tableau analysis for web display.
+- **templates**: HTML templates for the web application.
+  - **index.html**: Main template for the application's homepage.
+  - **tableau.html**: Template for displaying Tableau visualizations.
+- **training**: Files related to model training.
+  - **train_model.py**: Script used to train the neural network model.
+  - **final_model.h5**: The saved, trained model.
+- **app.py**: The main Flask application script that runs the web application.
 
 ### How to Run
 Enter "python app.py" or "python3 app.py" from the terminal.  This will launch the Flask web application and/or provide you with a link (e.g., http://127.0.0.1:5000) where you can view the main webpage with applicant interface and Tableau analysis.
