@@ -286,7 +286,7 @@ The Third NN Model was selected from all of the preceding models based upon its 
 - model.pkl
 
 ### Flask Application
-The three pickle files were loaded into a Flask application entitled "app.py". It is known that pickle files serve as a Python web framework and facilitate the building of web applications.  Herein, 
+The three pickle files were loaded into a Flask application entitled "app.py". 
 
 - **Prediction Function:** A prediction function is instrumental in determining an applicant seeking a mortgage based upon data representative of an applicant's input data. Along with "scaler.pkl" used in scaling the input data and model.pkl used in making the prediction based upon the scaled data, the prediction function returns a "Yes" or "No" to an Index Function.
 
